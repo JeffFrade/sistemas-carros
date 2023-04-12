@@ -2,9 +2,9 @@ version: '3.5'
 services:
   php-fpm:
     build: ./docker/php
-    image: jefffrade/api:php-fpm
+    image: jefffrade/carros:php-fpm
     restart: on-failure
-    container_name: jefffrade-api-php-fpm
+    container_name: jefffrade-carros-php-fpm
     command: php-fpm
     links:
       - mysql
@@ -22,9 +22,9 @@ services:
 
   nginx:
     build: ./docker/nginx
-    image: jefffrade/api:nginx
+    image: jefffrade/carros:nginx
     restart: on-failure
-    container_name: jefffrade-api-nginx
+    container_name: jefffrade-carros-nginx
     command: nginx -g "daemon off;"
     links:
       - php-fpm
@@ -42,9 +42,9 @@ services:
 
   mysql:
     build: ./docker/mysql
-    image: jefffrade/api:mysql
+    image: jefffrade/carros:mysql
     restart: on-failure
-    container_name: jefffrade-api-mysql
+    container_name: jefffrade-carros-mysql
     volumes:
       - "${DOCKER_DATA_PATH}/mysql:/var/lib/mysql"
     command:
@@ -64,9 +64,9 @@ services:
 
   mongodb:
     build: ./docker/mongodb
-    image: jefffrade/api:mongodb
+    image: jefffrade/carros:mongodb
     restart: on-failure
-    container_name: jefffrade-api-mongodb
+    container_name: jefffrade-carros-mongodb
     volumes:
       - ${DOCKER_DATA_PATH}/mongo:/data/db
       - ./docker/mongodb/backup:/backup
