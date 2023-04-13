@@ -2,14 +2,16 @@
 
 namespace App\Repositories\Collections;
 
+use Database\Factories\CarFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
 class Car extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $connection = 'mysql';
+    protected $connection = 'mongodb';
 
     protected $fillable = [
         'model',
@@ -18,4 +20,9 @@ class Car extends Model
         'year',
         'price'
     ];
+
+    public static function newFactory()
+    {
+        return CarFactory::new();
+    }
 }
