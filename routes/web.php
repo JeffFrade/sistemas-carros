@@ -23,4 +23,8 @@ Auth::routes([
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    Route::group(['prefix' => 'colors'], function () {
+        Route::get('/', 'ColorController@index')->name('dashboard.colors.index');
+    });
 });
