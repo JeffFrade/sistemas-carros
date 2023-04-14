@@ -23,7 +23,8 @@ class CarFactory extends Factory
             'id_brand' => rand(1, 10),
             'id_color' => rand(1, 5),
             'year' => (int) $this->faker->year(),
-            'price' => rand(10000, 1000000)
+            'price' => rand(10000, 1000000),
+            'showcase' => rand(0, 1),
         ];
     }
 }

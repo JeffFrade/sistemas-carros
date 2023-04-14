@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Core\Support\Controller;
 use App\Services\ColorService;
+use Illuminate\Http\Request;
 
 class ColorController extends Controller
 {
@@ -14,10 +15,12 @@ class ColorController extends Controller
         $this->colorService = $colorService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $colors = $this->colorService->index();
+        $params = $request->all();
 
-        return view('color.index', compact('colors'));
+        $colors = $this->colorService->index($params);
+
+        return view('color.index', compact('colors', 'params'));
     }
 }

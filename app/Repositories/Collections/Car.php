@@ -18,7 +18,9 @@ class Car extends Model
         'id_brand',
         'id_color',
         'year',
-        'price'
+        'price',
+        'showcase',
+        'image'
     ];
 
     public static function newFactory()

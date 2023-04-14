@@ -210,6 +210,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'PaginateHelper' => \App\Helpers\PaginateHelper::class,
     ])->toArray(),
 
 ];

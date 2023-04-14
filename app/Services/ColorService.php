@@ -12,8 +12,10 @@ class ColorService
         $this->colorRepository = new ColorRepository();
     }
 
-    public function index()
+    public function index(array $data)
     {
-        return $this->colorRepository->allNoTrashed();
+        $color = $data['color'] ?? '';
+
+        return $this->colorRepository->index($color);
     }
 }

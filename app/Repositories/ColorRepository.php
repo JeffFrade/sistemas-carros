@@ -11,4 +11,9 @@ class ColorRepository extends AbstractRepository
     {
         $this->model = new Color();
     }
+
+    public function index(string $color = '')
+    {
+        return $this->model->where('color', 'LIKE', '%' . $color . '%')->simplePaginate();
+    }
 }

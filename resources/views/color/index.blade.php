@@ -9,9 +9,20 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="card card-primary">
+            {{ Form::open(['route' => 'dashboard.colors.index', 'method' => 'GET']) }}
+            <div class="card card-secondary">
                 <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <input type="text" id="color" name="color" class="form-control" placeholder="Cor" value="{{ $params['color'] ?? '' }}">
+                        </div>
 
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-primary btn-overlay"><i class="fa fa-search"></i>&nbsp; Filtrar</button>
+                            &nbsp;
+                            <a href="#" class="btn btn-default text-dark"><i class="fa fa-plus"></i>&nbsp; Cadastrar Cor</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-body">
@@ -24,7 +35,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach($colors as $c)
+                            @forelse($colors as $c)
                                 <tr>
                                     <td>{{ $c->color }}</td>
                                     <td style="width: 1%;" nowrap="">
@@ -33,15 +44,22 @@
                                         <a href="#" class="btn btn-danger btn-xs" title="Excluir"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="2">Não há dados</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
 
                 <div class="card-footer">
-
+                    {!! PaginateHelper::paginateWithParams($colors, $params) !!}
                 </div>
+
+                @include('util.overlay')
             </div>
+            {{ Form::close() }}
         </div>
     </div>
 @stop
