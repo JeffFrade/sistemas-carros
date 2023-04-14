@@ -35,13 +35,13 @@
                         </thead>
 
                         <tbody>
-                            @forelse($colors as $c)
+                            @forelse($colors as $color)
                                 <tr>
-                                    <td>{{ $c->color }}</td>
+                                    <td>{{ $color->color }}</td>
                                     <td style="width: 1%;" nowrap="">
                                         <a href="#" class="btn btn-default btn-xs" title="Editar"><i class="fa fa-edit"></i></a>
                                         &nbsp;
-                                        <a href="#" class="btn btn-danger btn-xs" title="Excluir"><i class="fa fa-trash"></i></a>
+                                        <a href="#" class="btn btn-danger btn-xs btn-del" data-id="{{ $color->id }}" title="Excluir"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @empty
@@ -62,4 +62,34 @@
             {{ Form::close() }}
         </div>
     </div>
+@stop
+
+@section('js')
+<script type="text/javascript">
+        $('.btn-del').on('click', function (e) {
+            e.preventDefault();
+            $('.overlay').removeClass('overlay-hidden');
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                },
+                method: 'DELETE',
+                url: 'colors/delete/' + $(this).data('id'),
+                timeout: 0,
+                success: function (response) {
+                    $.notify({message: response.message}, {type: 'success'});
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                },
+                error: function (err) {
+                    let error = err.responseJSON.error;
+                    $.notify({message: error.message}, {type: 'danger'});
+                    console.error(error);
+                    $('.overlay').addClass('overlay-hidden');
+                }
+            });
+        });
+    </script>
 @stop

@@ -17,7 +17,3 @@ $('.form-error').each(function (index) {
 $('.form-success').each(function (index) {
     $.notify({message: $(this).text()}, {type: 'success'});
 });
-
-$('.select2').select2({
-    placeholder: 'Selecione uma Opção'
-});

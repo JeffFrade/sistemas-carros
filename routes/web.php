@@ -26,5 +26,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
     Route::group(['prefix' => 'colors'], function () {
         Route::get('/', 'ColorController@index')->name('dashboard.colors.index');
+        Route::delete('/delete/{id}', 'ColorController@delete')->name('dashboard.colors.delete');
     });
 });
