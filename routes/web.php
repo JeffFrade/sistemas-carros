@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
         Route::get('/', 'ColorController@index')->name('dashboard.colors.index');
         Route::get('/create', 'ColorController@create')->name('dashboard.colors.create');
         Route::post('/store', 'ColorController@store')->name('dashboard.colors.store');
+        Route::get('/edit/{id}', 'ColorController@edit')->name('dashboard.colors.edit');
+        Route::put('/update/{id}', 'ColorController@update')->name('dashboard.colors.update');
         Route::delete('/delete/{id}', 'ColorController@delete')->name('dashboard.colors.delete');
     });
 });

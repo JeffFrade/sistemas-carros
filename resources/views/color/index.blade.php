@@ -39,7 +39,7 @@
                                 <tr>
                                     <td>{{ $color->color }}</td>
                                     <td style="width: 1%;" nowrap="">
-                                        <a href="#" class="btn btn-default btn-xs" title="Editar"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ route('dashboard.colors.edit', ['id' => $color->id]) }}" class="btn btn-default btn-xs" title="Editar"><i class="fa fa-edit"></i></a>
                                         &nbsp;
                                         <a href="#" class="btn btn-danger btn-xs btn-del" data-id="{{ $color->id }}" title="Excluir"><i class="fa fa-trash"></i></a>
                                     </td>

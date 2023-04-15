@@ -25,13 +25,7 @@ class ColorService
         $this->colorRepository->create($data);
     }
 
-    public function delete(int $id)
-    {
-        $this->show($id);
-        $this->colorRepository->delete($id);
-    }
-
-    private function show(int $id)
+    public function show(int $id)
     {
         $color = $this->colorRepository->findFirst('id', $id);
 
@@ -40,5 +34,18 @@ class ColorService
         }
 
         return $color;
+    }
+
+    public function update(array $data, int $id)
+    {
+        $this->show($id);
+
+        $this->colorRepository->update($data, $id);
+    }
+
+    public function delete(int $id)
+    {
+        $this->show($id);
+        $this->colorRepository->delete($id);
     }
 }

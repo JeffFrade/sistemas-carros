@@ -41,6 +41,28 @@ class ColorController extends Controller
             ->with('message', 'Cor cadastrada com sucesso!');
     }
 
+    public function edit(int $id)
+    {
+        $color = $this->colorService->show($id);
+
+        return view('color.edit', compact('color'));
+    }
+
+    public function update(Request $request, int $id)
+    {
+        try {
+            $params = $this->toValidate($request);
+
+            $this->colorService->update($params, $id);
+
+            return redirect(route('dashboard.colors.index'))
+                ->with('message', 'Cor editada com sucesso!');
+        } catch (ColorNotFoundException $e) {
+            return redirect(route('dashboard.colors.index'))
+                ->with('error', $e->getMessage());
+        }
+    }
+
     public function delete(int $id)
     {
         try {
