@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Core\Support\Controller;
+use App\Exceptions\ColorAssignedException;
 use App\Exceptions\ColorNotFoundException;
 use App\Services\ColorService;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class ColorController extends Controller
             return response()->json([
                 'message' => 'Cor Excluída com Sucesso'
             ]);
-        } catch (ColorNotFoundException $e) {
+        } catch (ColorNotFoundException | ColorAssignedException $e) {
             return response()->json([
                 'error' => [
                     'message' => $e->getMessage(),

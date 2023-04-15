@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Repositories\Collections\Car::truncate();
+
         \App\Repositories\Models\User::factory()->create();
         \App\Repositories\Models\Brand::factory(10)->create();
         \App\Repositories\Models\Color::factory(5)->create();

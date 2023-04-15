@@ -191,6 +191,7 @@ return [
          */
         App\Core\Providers\AppServiceProvider::class,
         App\Core\Providers\AuthServiceProvider::class,
+        App\Core\Providers\ModelServiceProvider::class,
         App\Core\Providers\RouteServiceProvider::class,
 
     ],
