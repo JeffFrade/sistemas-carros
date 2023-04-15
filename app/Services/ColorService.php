@@ -20,6 +20,11 @@ class ColorService
         return $this->colorRepository->index($color);
     }
 
+    public function store(array $data)
+    {
+        $this->colorRepository->create($data);
+    }
+
     public function delete(int $id)
     {
         $this->show($id);

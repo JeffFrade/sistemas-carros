@@ -26,6 +26,21 @@ class ColorController extends Controller
         return view('color.index', compact('colors', 'params'));
     }
 
+    public function create()
+    {
+        return view('color.create');
+    }
+
+    public function store(Request $request)
+    {
+        $params = $this->toValidate($request);
+
+        $this->colorService->store($params);
+
+        return redirect(route('dashboard.colors.index'))
+            ->with('message', 'Cor cadastrada com sucesso!');
+    }
+
     public function delete(int $id)
     {
         try {
@@ -43,5 +58,14 @@ class ColorController extends Controller
                 ]
             ], 500);
         }
+    }
+
+    protected function toValidate(Request $request)
+    {
+        $toValidateArr = [
+            'color' => 'required|max:15'
+        ];
+
+        return $this->validate($request, $toValidateArr);
     }
 }

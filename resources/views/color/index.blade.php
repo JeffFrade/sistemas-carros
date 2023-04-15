@@ -20,7 +20,7 @@
                         <div class="col-sm-4">
                             <button type="submit" class="btn btn-primary btn-overlay"><i class="fa fa-search"></i>&nbsp; Filtrar</button>
                             &nbsp;
-                            <a href="#" class="btn btn-default text-dark"><i class="fa fa-plus"></i>&nbsp; Cadastrar Cor</a>
+                            <a href="{{ route('dashboard.colors.create') }}" class="btn btn-default text-dark"><i class="fa fa-plus"></i>&nbsp; Cadastrar Cor</a>
                         </div>
                     </div>
                 </div>
