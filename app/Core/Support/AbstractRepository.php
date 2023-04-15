@@ -59,10 +59,11 @@ abstract class AbstractRepository
         return $instance->save();
     }
 
-    public function customDelete(string $field, string $value)
+    public function customDelete(string $field, mixed $value)
     {
         return $this->model->where($field, $value)->delete();
     }
+
 
     public function delete($id)
     {
