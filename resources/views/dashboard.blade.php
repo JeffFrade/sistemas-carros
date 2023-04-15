@@ -8,11 +8,18 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <p class="mb-0">You are logged in!</p>
+        <div class="col-3">
+            <div class="small-box bg-blue">
+                <div class="inner">
+                    <h3>{{ $totalColorsIndex }}</h3>
+                    <p>Cores</p>
                 </div>
+
+                <div class="icon">
+                    <i class="fa fa-palette"></i>
+                </div>
+
+                <a href="{{ route('dashboard.colors.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

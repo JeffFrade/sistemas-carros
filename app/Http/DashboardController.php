@@ -3,27 +3,22 @@
 namespace App\Http;
 
 use App\Core\Support\Controller;
+use App\Services\ColorService;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+    private $colorService;
 
+    public function __construct(ColorService $colorService)
+    {
+        $this->colorService = $colorService;
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('dashboard');
+        $totalColorsIndex = $this->colorService->totalColorsIndex();
+
+        return view('dashboard', compact('totalColorsIndex'));
     }
 }

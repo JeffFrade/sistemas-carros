@@ -48,4 +48,9 @@ class ColorService
         $this->show($id);
         $this->colorRepository->delete($id);
     }
+
+    public function totalColorsIndex()
+    {
+        return count($this->colorRepository->allNoTrashed());
+    }
 }
