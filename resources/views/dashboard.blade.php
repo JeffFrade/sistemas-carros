@@ -37,5 +37,20 @@
                 <a href="{{ route('dashboard.brands.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
+
+        <div class="col-3">
+            <div class="small-box bg-blue">
+                <div class="inner">
+                    <h3>{{ $totalCarsIndex }}</h3>
+                    <p>Carros</p>
+                </div>
+
+                <div class="icon">
+                    <i class="fa fa-car"></i>
+                </div>
+
+                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
     </div>
 @stop
