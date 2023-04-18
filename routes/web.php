@@ -32,4 +32,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
         Route::put('/update/{id}', 'ColorController@update')->name('dashboard.colors.update');
         Route::delete('/delete/{id}', 'ColorController@delete')->name('dashboard.colors.delete');
     });
+
+    Route::group(['prefix' => 'brands'], function () {
+        Route::get('/', 'BrandController@index')->name('dashboard.brands.index');
+        Route::get('/create', 'BrandController@create')->name('dashboard.brands.create');
+        Route::post('/store', 'BrandController@store')->name('dashboard.brands.store');
+        Route::get('/edit/{id}', 'BrandController@edit')->name('dashboard.brands.edit');
+        Route::put('/update/{id}', 'BrandController@update')->name('dashboard.brands.update');
+        Route::delete('/delete/{id}', 'BrandController@delete')->name('dashboard.brands.delete');
+    });
 });

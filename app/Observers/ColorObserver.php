@@ -14,7 +14,7 @@ class ColorObserver
         $cars = $carRepository->findBy('id_color', $color->id);
 
         if (count($cars) > 0) {
-            throw new ColorAssignedException('Cor vinculada a um ou mais carros');
+            throw new ColorAssignedException('Cor vinculada a um ou mais carros.');
         }
     }
 }

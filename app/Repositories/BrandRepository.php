@@ -11,4 +11,10 @@ class BrandRepository extends AbstractRepository
     {
         $this->model = new Brand();
     }
+
+    public function index(string $brand = '')
+    {
+        return $this->model->where('brand', 'LIKE', '%' . $brand . '%')
+            ->simplePaginate();
+    }
 }

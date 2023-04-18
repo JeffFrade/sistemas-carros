@@ -319,6 +319,12 @@ return [
             'icon' => 'fa fa-fw fa-palette',
             'active' => ['/dashboard/colors', '/dashboard/colors*', '/dashboard/colors/*', '/dashboard/colors?*'],
         ],
+        [
+            'text' => 'Marcas',
+            'url'  => 'dashboard/brands',
+            'icon' => 'fa fa-fw fa-tags',
+            'active' => ['/dashboard/brands', '/dashboard/brands*', '/dashboard/brands/*', '/dashboard/brands?*'],
+        ],
         /*[
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
