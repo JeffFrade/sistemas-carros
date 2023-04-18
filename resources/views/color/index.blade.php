@@ -41,7 +41,7 @@
                                     <td style="width: 1%;" nowrap="">
                                         <a href="{{ route('dashboard.colors.edit', ['id' => $color->id]) }}" class="btn btn-default btn-xs" title="Editar"><i class="fa fa-edit"></i></a>
                                         &nbsp;
-                                        <a href="#" class="btn btn-danger btn-xs btn-del" data-id="{{ $color->id }}" title="Excluir"><i class="fa fa-trash"></i></a>
+                                        <a href="#" class="btn btn-danger btn-xs btn-overlay" data-id="{{ $color->id }}" title="Excluir" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @empty
@@ -61,21 +61,37 @@
             </div>
             {{ Form::close() }}
         </div>
+
+        @include('util.delete-modal')
     </div>
 @stop
 
 @section('js')
-<script type="text/javascript">
+    <script type="text/javascript">
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            let button = $(event.relatedTarget);
+            let id = button.data('id');
+            let modal = $(this);
+
+            modal.find('.id-del').val(id);
+        });
+
+        $('#deleteModal').on('hide.bs.modal', function (event) {
+            $('.overlay').addClass('overlay-hidden');
+        });
+
         $('.btn-del').on('click', function (e) {
             e.preventDefault();
-            $('.overlay').removeClass('overlay-hidden');
+
+            $('#deleteModal').hide();
+
             $.ajax({
                 contentType: 'application/x-www-form-urlencoded',
                 data: {
                     _token: $('meta[name="csrf-token"]').attr('content'),
                 },
                 method: 'DELETE',
-                url: 'colors/delete/' + $(this).data('id'),
+                url: 'colors/delete/' + $('.id-del').val(),
                 timeout: 0,
                 success: function (response) {
                     $.notify({message: response.message}, {type: 'success'});
@@ -87,7 +103,9 @@
                     let error = err.responseJSON.error;
                     $.notify({message: error.message}, {type: 'danger'});
                     console.error(error);
-                    $('.overlay').addClass('overlay-hidden');
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
                 }
             });
         });
