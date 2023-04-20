@@ -19,7 +19,7 @@
                     <i class="fa fa-palette"></i>
                 </div>
 
-                <a href="{{ route('dashboard.colors.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('dashboard.colors.index') }}" class="small-box-footer">Mais Informações &nbsp;<i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
@@ -34,7 +34,7 @@
                     <i class="fa fa-tags"></i>
                 </div>
 
-                <a href="{{ route('dashboard.brands.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('dashboard.brands.index') }}" class="small-box-footer">Mais Informações &nbsp;<i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
@@ -49,7 +49,7 @@
                     <i class="fa fa-car"></i>
                 </div>
 
-                <a href="{{ route('dashboard.cars.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('dashboard.cars.index') }}" class="small-box-footer">Mais Informações &nbsp;<i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
