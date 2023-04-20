@@ -41,4 +41,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
         Route::put('/update/{id}', 'BrandController@update')->name('dashboard.brands.update');
         Route::delete('/delete/{id}', 'BrandController@delete')->name('dashboard.brands.delete');
     });
+
+    Route::group(['prefix' => 'cars'], function () {
+        Route::get('/', 'CarController@index')->name('dashboard.cars.index');
+        Route::get('/create', 'CarController@create')->name('dashboard.cars.create');
+        Route::post('/store', 'CarController@store')->name('dashboard.cars.store');
+        Route::get('/edit/{id}', 'CarController@edit')->name('dashboard.cars.edit');
+        Route::put('/update/{id}', 'CarController@update')->name('dashboard.cars.update');
+        Route::delete('/delete/{id}', 'CarController@delete')->name('dashboard.cars.delete');
+    });
 });

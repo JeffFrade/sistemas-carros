@@ -52,6 +52,11 @@ class BrandService
 
     public function totalBrandsIndex()
     {
-        return count($this->brandRepository->allNoTrashed());
+        return count($this->getAll());
+    }
+
+    public function getAll()
+    {
+        return $this->brandRepository->allNoTrashed();
     }
 }

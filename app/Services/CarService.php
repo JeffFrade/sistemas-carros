@@ -16,4 +16,14 @@ class CarService
     {
         return count($this->carRepository->allNoTrashed());
     }
+
+    public function index(array $data)
+    {
+        $model = $data['model'] ?? '';
+        $idBrand = $data['id_brand'] ?? null;
+        $idColor = $data['id_color'] ?? null;
+        $year = $data['year'] ?? null;
+
+        return $this->carRepository->index($model, $idBrand, $idColor, $year);
+    }
 }
