@@ -212,6 +212,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'PaginateHelper' => \App\Helpers\PaginateHelper::class,
+        'StringHelper' => \App\Helpers\StringHelper::class,
     ])->toArray(),
 
 ];

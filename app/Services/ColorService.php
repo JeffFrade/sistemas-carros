@@ -51,6 +51,11 @@ class ColorService
 
     public function totalColorsIndex()
     {
-        return count($this->colorRepository->allNoTrashed());
+        return count($this->getAll());
+    }
+
+    public function getAll()
+    {
+        return $this->colorRepository->allNoTrashed();
     }
 }

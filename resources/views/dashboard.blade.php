@@ -49,7 +49,7 @@
                     <i class="fa fa-car"></i>
                 </div>
 
-                <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('dashboard.cars.index') }}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

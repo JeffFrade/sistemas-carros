@@ -325,6 +325,12 @@ return [
             'icon' => 'fa fa-fw fa-tags',
             'active' => ['/dashboard/brands', '/dashboard/brands*', '/dashboard/brands/*', '/dashboard/brands?*'],
         ],
+        [
+            'text' => 'Carros',
+            'url'  => 'dashboard/cars',
+            'icon' => 'fa fa-fw fa-car',
+            'active' => ['/dashboard/cars', '/dashboard/cars*', '/dashboard/cars/*', '/dashboard/cars?*'],
+        ],
         /*[
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
