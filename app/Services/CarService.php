@@ -26,4 +26,19 @@ class CarService
 
         return $this->carRepository->index($model, $idBrand, $idColor, $year);
     }
+
+    public function getMostExpensiveCars()
+    {
+        return $this->carRepository->getMostExpensiveCars();
+    }
+
+    public function totalShowcaseCars()
+    {
+        return $this->carRepository->totalShowcaseCars();
+    }
+
+    public function totalValue()
+    {
+        return $this->carRepository->totalValue();
+    }
 }

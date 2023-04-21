@@ -30,11 +30,17 @@ class DashboardController extends Controller
         $totalColorsIndex = $this->colorService->totalColorsIndex();
         $totalBrandsIndex = $this->brandService->totalBrandsIndex();
         $totalCarsIndex = $this->carService->totalCarsIndex();
+        $cars = $this->carService->getMostExpensiveCars();
+        $totalShowcaseCars = $this->carService->totalShowcaseCars();
+        $totalValue = $this->carService->totalValue();
 
         return view('dashboard', compact(
             'totalColorsIndex',
             'totalBrandsIndex',
-            'totalCarsIndex'
+            'totalCarsIndex',
+            'cars',
+            'totalShowcaseCars',
+            'totalValue'
         ));
     }
 }
