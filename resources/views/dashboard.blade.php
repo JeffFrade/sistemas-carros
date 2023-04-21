@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row margin-bottom">
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6">
             <div class="small-box bg-blue">
                 <div class="inner">
                     <h3>{{ $totalColorsIndex }}</h3>
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6">
             <div class="small-box bg-blue">
                 <div class="inner">
                     <h3>{{ $totalBrandsIndex }}</h3>
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6">
             <div class="small-box bg-blue">
                 <div class="inner">
                     <h3>{{ $totalCarsIndex }}</h3>
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6">
             <div class="small-box bg-blue">
                 <div class="inner">
                     <h3>10</h3>
