@@ -35,4 +35,22 @@ class CarRepository extends AbstractRepository
         return $cars->with(['brand', 'color'])
             ->simplePaginate();
     }
+
+    public function getMostExpensiveCars()
+    {
+        return $this->model->orderBy('price', 'DESC')
+            ->limit(10)
+            ->get();
+    }
+
+    public function totalShowcaseCars()
+    {
+        return $this->model->where('showcase', 1)
+            ->count();
+    }
+
+    public function totalValue()
+    {
+        return $this->model->sum('price');
+    }
 }

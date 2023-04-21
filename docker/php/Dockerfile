@@ -23,6 +23,7 @@ RUN rm /etc/ssl/openssl.cnf
 
 RUN docker-php-ext-install \
         pdo \
+        bcmath \
         pdo_mysql \
         zip
 

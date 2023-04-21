@@ -42,7 +42,7 @@
                         <div class="col-sm-4">
                             <button type="submit" class="btn btn-primary btn-overlay"><i class="fa fa-search"></i>&nbsp; Filtrar</button>
                             &nbsp;
-                            <a href="{{ route('dashboard.cars.create') }}" class="btn btn-default text-dark"><i class="fa fa-plus"></i>&nbsp; Cadastrar Marca</a>
+                            <a href="{{ route('dashboard.cars.create') }}" class="btn btn-default text-dark"><i class="fa fa-plus"></i>&nbsp; Cadastrar Carro</a>
                         </div>
                     </div>
                 </div>
