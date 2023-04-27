@@ -6,23 +6,26 @@ use App\Core\Support\Controller;
 use App\Services\BrandService;
 use App\Services\CarService;
 use App\Services\ColorService;
-use Illuminate\Http\Request;
+use App\Services\UserService;
 
 class DashboardController extends Controller
 {
     private $colorService;
     private $brandService;
     private $carService;
+    private $userService;
 
     public function __construct(
         ColorService $colorService,
         BrandService $brandService,
-        CarService $carService
+        CarService $carService,
+        UserService $userService
     )
     {
         $this->colorService = $colorService;
         $this->brandService = $brandService;
         $this->carService = $carService;
+        $this->userService = $userService;
     }
 
     public function index()
@@ -34,6 +37,7 @@ class DashboardController extends Controller
         $totalShowcaseCars = $this->carService->totalShowcaseCars();
         $totalValue = $this->carService->totalValue();
         $avgPrice = $this->carService->avgPrice();
+        $totalUsers = $this->userService->totalUsersIndex();
 
         return view('dashboard', compact(
             'totalColorsIndex',
@@ -42,7 +46,8 @@ class DashboardController extends Controller
             'cars',
             'totalShowcaseCars',
             'totalValue',
-            'avgPrice'
+            'avgPrice',
+            'totalUsers'
         ));
     }
 }
