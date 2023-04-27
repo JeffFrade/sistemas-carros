@@ -41,4 +41,9 @@ class CarService
     {
         return $this->carRepository->totalValue();
     }
+
+    public function avgPrice()
+    {
+        return $this->carRepository->avgPrice();
+    }
 }

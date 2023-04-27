@@ -53,4 +53,9 @@ class CarRepository extends AbstractRepository
     {
         return $this->model->sum('price');
     }
+
+    public function avgPrice()
+    {
+        return $this->model->avg('price');
+    }
 }
