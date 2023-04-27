@@ -13,6 +13,11 @@ class UserService
         $this->userRepository = new UserRepository();
     }
 
+    public function index(array $data)
+    {
+        return $this->userRepository->index($data['search'] ?? '');
+    }
+
     public function totalUsersIndex()
     {
         return count($this->getAll());
