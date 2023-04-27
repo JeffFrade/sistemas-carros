@@ -9,8 +9,12 @@ class StringHelper
         return number_format($currency, 2, ',', '.');
     }
 
-    public static function hashPassword(string $password)
+    public static function hashPassword(?string $password)
     {
+        if (empty($password)) {
+            return null;
+        }
+
         return \Hash::make($password);
     }
 }

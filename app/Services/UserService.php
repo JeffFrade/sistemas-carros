@@ -37,6 +37,19 @@ class UserService
         return $user;
     }
 
+    public function update(array $data, int $id)
+    {
+        $this->show($id);
+
+        $data['password'] = StringHelper::hashPassword($data['password']);
+
+        if (empty($data['password'])) {
+            unset($data['password']);
+        }
+
+        $this->userRepository->update($data, $id);
+    }
+
     public function delete(int $id)
     {
         $this->show($id);

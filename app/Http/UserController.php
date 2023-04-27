@@ -42,16 +42,15 @@ class UserController extends Controller
 
     public function edit(int $id)
     {
-        /*$user = $this->userService->show($id);
+        $user = $this->userService->show($id);
 
-        return view('user.edit', compact('user'));*/
+        return view('user.edit', compact('user'));
     }
 
     public function update(Request $request, int $id)
     {
-        /*try {
-            $params = $this->toValidate($request);
-
+        try {
+            $params = $this->toValidate($request, true, $id);
             $this->userService->update($params, $id);
 
             return redirect(route('dashboard.users.index'))
@@ -59,7 +58,7 @@ class UserController extends Controller
         } catch (UserNotFoundException $e) {
             return redirect(route('dashboard.users.index'))
                 ->with('error', $e->getMessage());
-        }*/
+        }
     }
 
     public function delete(int $id)
@@ -81,12 +80,14 @@ class UserController extends Controller
         }
     }
 
-    protected function toValidate(Request $request, ?int $id = null)
+    protected function toValidate(Request $request, bool $isUpdate = false, ?int $id = null)
     {
+        $passwordField = ($isUpdate ? 'nullable' : 'required');
+
         $toValidateArr = [
             'name' => 'required|max:255',
             'email' => 'required|max:255|unique:users,email,' . $id,
-            'password' => 'required|min:8',
+            'password' => $passwordField . '|min:8',
         ];
 
         return $this->validate($request, $toValidateArr);
