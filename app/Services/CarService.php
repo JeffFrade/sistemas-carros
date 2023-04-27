@@ -28,6 +28,11 @@ class CarService
         return $this->carRepository->index($model, $idBrand, $idColor, $year);
     }
 
+    public function store(array $data)
+    {
+        $this->carRepository->create($data);
+    }
+
     public function show(string $id)
     {
         $car = $this->carRepository->findFirst('_id', $id);

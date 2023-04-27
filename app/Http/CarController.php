@@ -38,17 +38,25 @@ class CarController extends Controller
 
     public function create()
     {
+        $brands = $this->brandService->getAll();
+        $colors = $this->colorService->getAll();
 
+        return view('car.create', compact('brands', 'colors'));
     }
 
     public function store(Request $request)
     {
+        $params = $this->toValidate($request);
+        $this->carService->store($params);
 
+        return redirect(route('dashboard.cars.index'))
+            ->with('message', 'Carro cadastrado com sucesso!');
     }
 
     public function edit(string $id)
     {
-
+        $brands = $this->brandService->getAll();
+        $colors = $this->colorService->getAll();
     }
 
     public function update(Request $request, string $id)
@@ -78,7 +86,12 @@ class CarController extends Controller
     protected function toValidate(Request $request)
     {
         $toValidateArr = [
-            'brand' => 'required|max:30'
+            'model' => 'required|max:50',
+            'id_brand' => 'required|numeric',
+            'id_color' => 'required|numeric',
+            'year' => 'required|numeric|min:0',
+            'price' => 'required|numeric|min:0',
+            'showcase' => 'required|numeric',
         ];
 
         return $this->validate($request, $toValidateArr);
