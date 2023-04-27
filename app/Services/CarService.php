@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+use App\Exceptions\CarNotFoundException;
 use App\Repositories\CarRepository;
 
 class CarService
@@ -25,6 +26,23 @@ class CarService
         $year = $data['year'] ?? null;
 
         return $this->carRepository->index($model, $idBrand, $idColor, $year);
+    }
+
+    public function show(string $id)
+    {
+        $car = $this->carRepository->findFirst('_id', $id);
+
+        if (empty($car)) {
+            throw new CarNotFoundException('Carro Inexistente');
+        }
+
+        return $car;
+    }
+
+    public function delete(string $id)
+    {
+        $this->show($id);
+        $this->carRepository->delete($id);
     }
 
     public function getMostExpensiveCars()
