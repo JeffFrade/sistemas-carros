@@ -89,6 +89,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-4">
+            <div class="info-box">
+                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-dollar-sign"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Valor Médio dos Carros</span>
+                    <span class="info-box-number">R$ {{ \StringHelper::formatCurrency($avgPrice) }}</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row">

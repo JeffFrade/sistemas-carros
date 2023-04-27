@@ -77,12 +77,9 @@
                                         @endif
                                     </td>
                                     <td style="width: 1%" nowrap="">
-                                        <a href="#" class="btn btn-primary btn-xs {{ empty($car->image ?? '') ? 'disabled' : '' }}" title="Visualizar Foto"><i class="fa fa-image"></i></a>
-                                        &nbsp;
-                                        <a href="#" class="btn btn-default btn-xs" title="Editar"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ route('dashboard.cars.edit', ['id' => $car->id]) }}" class="btn btn-default btn-xs" title="Editar"><i class="fa fa-edit"></i></a>
                                         &nbsp;
                                         <a href="#" class="btn btn-danger btn-xs btn-overlay" data-id="{{ $car->id }}" title="Excluir" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></a>
-
                                     </td>
                                 </tr>
                             @empty
@@ -110,6 +107,6 @@
 @section('js')
     <script src="{{ asset('js/delete-modal.js') }}"></script>
     <script type="text/javascript">
-        deleteModal('colors/delete/');
+        deleteModal('cars/delete/');
     </script>
 @stop

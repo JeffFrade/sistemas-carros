@@ -28,13 +28,13 @@ class BrandService
 
     public function show(int $id)
     {
-        $color = $this->brandRepository->findFirst('id', $id);
+        $brand = $this->brandRepository->findFirst('id', $id);
 
-        if (empty($color)) {
+        if (empty($brand)) {
             throw new BrandNotFoundException('Marca Inexistente');
         }
 
-        return $color;
+        return $brand;
     }
 
     public function update(array $data, int $id)

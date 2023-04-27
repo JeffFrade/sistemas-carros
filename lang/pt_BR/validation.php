@@ -214,5 +214,9 @@ return [
         'year'                     => 'ano',
         'color'                    => 'cor',
         'brand'                    => 'marca',
+        'model'                    => 'modelo',
+        'id_color'                 => 'cor',
+        'id_brand'                 => 'marca',
+        'showcase'                 => 'vitrine'
     ],
 ];
