@@ -18,6 +18,11 @@ class UserService
         return $this->userRepository->index($data['search'] ?? '');
     }
 
+    public function store(array $data)
+    {
+        $this->userRepository->create($data);
+    }
+
     public function totalUsersIndex()
     {
         return count($this->getAll());

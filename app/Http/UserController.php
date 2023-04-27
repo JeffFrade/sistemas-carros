@@ -32,12 +32,12 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        /*$params = $this->toValidate($request);
+        $params = $this->toValidate($request);
 
         $this->userService->store($params);
 
         return redirect(route('dashboard.users.index'))
-            ->with('message', 'Usuário cadastrado com sucesso!');*/
+            ->with('message', 'Usuário cadastrado com sucesso!');
     }
 
     public function edit(int $id)
@@ -81,10 +81,12 @@ class UserController extends Controller
         }*/
     }
 
-    protected function toValidate(Request $request)
+    protected function toValidate(Request $request, ?int $id = null)
     {
         $toValidateArr = [
-            'color' => 'required|max:15'
+            'name' => 'required|max:255',
+            'email' => 'required|max:255|unique:users,email,' . $id,
+            'password' => 'required|min:8',
         ];
 
         return $this->validate($request, $toValidateArr);
