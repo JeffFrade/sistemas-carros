@@ -331,44 +331,12 @@ return [
             'icon' => 'fa fa-fw fa-car',
             'active' => ['/dashboard/cars', '/dashboard/cars*', '/dashboard/cars/*', '/dashboard/cars?*'],
         ],
-        /*[
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],*/
+        [
+            'text' => 'Usuários',
+            'url'  => 'dashboard/users',
+            'icon' => 'fa fa-fw fa-users',
+            'active' => ['/dashboard/users', '/dashboard/users*', '/dashboard/users/*', '/dashboard/users?*'],
+        ],
     ],
 
     /*
