@@ -44,6 +44,13 @@ class CarService
         return $car;
     }
 
+    public function update(array $data, string $id)
+    {
+        $this->show($id);
+
+        $this->carRepository->update($data, $id);
+    }
+
     public function delete(string $id)
     {
         $this->show($id);

@@ -57,11 +57,23 @@ class CarController extends Controller
     {
         $brands = $this->brandService->getAll();
         $colors = $this->colorService->getAll();
+        $car = $this->carService->show($id);
+
+        return view('car.edit', compact('car', 'colors', 'brands'));
     }
 
     public function update(Request $request, string $id)
     {
+        try {
+            $params = $this->toValidate($request);
+            $this->carService->update($params, $id);
 
+            return redirect(route('dashboard.cars.index'))
+                ->with('message', 'Carro editado com sucesso!');
+        } catch (CarNotFoundException $e) {
+            return redirect(route('dashboard.cars.index'))
+                ->with('error', $e->getMessage());
+        }
     }
 
     public function delete(string $id)
