@@ -64,7 +64,7 @@ class UserController extends Controller
 
     public function delete(int $id)
     {
-        /*try {
+        try {
             $this->userService->delete($id);
 
             return response()->json([
@@ -78,7 +78,7 @@ class UserController extends Controller
                     'line' => $e->getLine()
                 ]
             ], 500);
-        }*/
+        }
     }
 
     protected function toValidate(Request $request, ?int $id = null)

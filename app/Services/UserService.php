@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Exceptions\UserNotFoundException;
+use App\Helpers\StringHelper;
 use App\Repositories\UserRepository;
 
 class UserService
@@ -20,7 +22,25 @@ class UserService
 
     public function store(array $data)
     {
+        $data['password'] = StringHelper::hashPassword($data['password']);
         $this->userRepository->create($data);
+    }
+
+    public function show(int $id)
+    {
+        $user = $this->userRepository->findFirst('id', $id);
+
+        if (empty($user)) {
+            throw new UserNotFoundException('Usuário Inexistente');
+        }
+
+        return $user;
+    }
+
+    public function delete(int $id)
+    {
+        $this->show($id);
+        $this->userRepository->delete($id);
     }
 
     public function totalUsersIndex()
